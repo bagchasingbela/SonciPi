@@ -93,6 +93,8 @@ live_loop :end do
   end
   stop
 end
+sleepy=[10,2,2,0.5,0.5]
+notes= [:e4,:e4,:e4]
 live_loop :first do
   2.times do
     with_fx :wobble ,smooth:4,amp:1,mix:1 do
