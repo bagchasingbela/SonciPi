@@ -1,19 +1,19 @@
 define:red do
-  wait 1
+  sleep 1
   play:c5
   play:c6
   sleep 1
-  wait 1
+  sleep 1
   play:a4
   play:a5
   sleep 1
 end
 define:blue do
-  wait 1
+  sleep 1
   play:e4
   play:e5
   sleep 1
-  wait 1
+  sleep 1
   play:e4
   play:e5
   sleep 1
@@ -37,8 +37,8 @@ define:lime do
   sleep 2
 end
 define:yellow do
-  wait 1
-  wait 0.5
+  sleep 1
+  sleep 0.5
   play:e4
   sleep 0.25
   play:e4
@@ -47,14 +47,14 @@ define:yellow do
   sleep 0.5
   play:d4
   sleep 0.5
-  wait 1
+  sleep 1
 end
 define:purple do
-  wait 1
+  sleep 1
   play:c3
   play:c4
   sleep 1
-  wait 1
+  sleep 1
   play:f3
   play:f4
   sleep 1
@@ -63,22 +63,13 @@ define:maroon do
   play:a2
   play:a3
   sleep 1
-  wait 1
+  sleep 1
   play:a2
   play:a3
   sleep 1
-  wait 1
+  sleep 1
 end
 vocals= "C:/Users/isabela_marquez/Downloads/VOCALS-ONLY-_-Kid-Cudi-PursuitHap.wav"
-
-live_loop :words,amp:1 do
-  1.times do
-    sleep 4
-    sample vocals
-    sleep 16
-  end
-  stop
-end
 use_bpm 120
 use_synth :tech_saws
 live_loop :middle do
@@ -117,21 +108,29 @@ live_loop :first do
         sleep sleepy[s]
         s=s+1
       end
-      wait 1
+      sleep 1
       n=0
       s=0
     end
   end
   stop
 end
+live_loop :words,amp:1 do
+  1.times do
+    sleep 16
+    sample vocals
+    sleep 16
+  end
+  stop
+end
 live_loop:first2 do
   1.times do
     with_fx :wobble ,smooth:4,amp: 0.5,mix:1 do
-      wait 32
+      sleep 32
       wait 4
       yellow
       yellow
-      wait 4
+      sleep 4
     end
   end
   stop
@@ -139,7 +138,7 @@ end
 live_loop:last2 do
   1.times do
     with_fx :wobble ,smooth:4,amp: 0.5,mix:1 do
-      wait 32
+      sleep 32
       lime
       play:a2
       sleep 2
@@ -148,7 +147,7 @@ live_loop:last2 do
       lime
       play:a2
       sleep 2
-      wait 2
+      sleep 2
     end
   end
   stop
@@ -156,7 +155,7 @@ end
 live_loop:middle2 do
   1.times do
     with_fx :wobble ,smooth:4,amp: 0.5,mix:1 do
-      wait 32
+      sleep 32
       purple
       maroon
       purple
