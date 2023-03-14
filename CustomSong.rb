@@ -76,7 +76,7 @@ live_loop :words do
     sleep 0.5
     sample vocals,amp:ampp
     sleep 3
-    ampp=ampp+0.333
+    ampp=ampp+0.4
   end
   4.times do
     sleep 0.5
