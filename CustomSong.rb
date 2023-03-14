@@ -69,12 +69,28 @@ define:maroon do
   sleep 1
   sleep 1
 end
-vocals= "C:/Users/isabela_marquez/Downloads/VOCALS-ONLY-_-Kid-Cudi-PursuitHap.wav"
+vocals="C:/Users/isabela_marquez/Downloads/untitled.wav"
+ampp=0.333
+live_loop :words do
+  4.times do
+    sleep 0.5
+    sample vocals,amp:ampp
+    sleep 3
+    ampp=ampp+0.333
+  end
+  4.times do
+    sleep 0.5
+    sample vocals,amp:ampp
+    sleep 0.5 #left to over lap on purpose
+    ampp=ampp-0.333
+  end
+  stop
+end
 use_bpm 120
 use_synth :tech_saws
 live_loop :middle do
   2.times do
-    with_fx :wobble ,smooth:4,amp: 0.5,mix:1 do
+    with_fx :wobble ,smooth:4,amp:1,mix:1 do
       red
       blue
       red
@@ -85,7 +101,7 @@ live_loop :middle do
 end
 live_loop :end do
   2.times do
-    with_fx :wobble ,smooth:5,amp: 0.5,mix:1 do
+    with_fx :wobble ,smooth:5,amp:1,mix:1 do
       green
       lilac
       green
@@ -100,7 +116,7 @@ notes= [:e4,:e4,:e4,:d4]
 n=0
 live_loop :first do
   2.times do
-    with_fx :wobble ,smooth:4,amp: 0.5,mix:1 do
+    with_fx :wobble ,smooth:4,amp:1,mix:1 do
       sleep 10
       4.times do
         play notes[n]
@@ -115,17 +131,9 @@ live_loop :first do
   end
   stop
 end
-live_loop :words,amp:1 do
-  1.times do
-    sleep 16
-    sample vocals
-    sleep 16
-  end
-  stop
-end
 live_loop:first2 do
   1.times do
-    with_fx :wobble ,smooth:4,amp: 0.5,mix:1 do
+    with_fx :wobble ,smooth:4,amp:1,mix:1 do
       sleep 32
       sleep 4
       yellow
@@ -137,7 +145,7 @@ live_loop:first2 do
 end
 live_loop:last2 do
   1.times do
-    with_fx :wobble ,smooth:4,amp: 0.5,mix:1 do
+    with_fx :wobble ,smooth:4,amp:1,mix:1 do
       sleep 32
       lime
       play:a2
@@ -154,7 +162,7 @@ live_loop:last2 do
 end
 live_loop:middle2 do
   1.times do
-    with_fx :wobble ,smooth:4,amp: 0.5,mix:1 do
+    with_fx :wobble ,smooth:4,amp:1,mix:1 do
       sleep 32
       purple
       maroon
