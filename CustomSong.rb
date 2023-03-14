@@ -72,7 +72,7 @@ end
 vocals="C:/Users/isabela_marquez/Downloads/untitled.wav"
 ampp=0.333
 live_loop :words do
-  4.times do
+  3.times do
     sleep 0.5
     sample vocals,amp:ampp
     sleep 3
