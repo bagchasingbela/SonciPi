@@ -127,7 +127,7 @@ live_loop:first2 do
   1.times do
     with_fx :wobble ,smooth:4,amp: 0.5,mix:1 do
       sleep 32
-      wait 4
+      sleep 4
       yellow
       yellow
       sleep 4
