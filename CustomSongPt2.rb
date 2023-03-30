@@ -1,5 +1,5 @@
 use_bpm 120
-define:secend2notes do |z,rr|
+define:secend2notes do |z|
   play:b2
   sleep 2
   play:r
@@ -14,7 +14,7 @@ define:secend2notes do |z,rr|
   sleep 2
   play:r
   sleep 0.5
-  play rr
+  play z
   sleep 1
   play:r
   sleep 0.5
@@ -164,8 +164,8 @@ end
 live_loop:secend2 do
   sleep 9.5
   1.times do
-    secend2notes :f2,:f2
-    secend2notes :d3,:r
+    secend2notes :f2
+    secend2notes :d3
   end
   stop
 end
