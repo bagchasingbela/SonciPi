@@ -240,3 +240,7 @@ live_loop:twoblockrd do
   star :f2,:f2
   stop
 end
+live_loop:caca do
+  sample :drum_cymbal_closed, rate: -1
+  sleep 0.5
+end
