@@ -1,19 +1,19 @@
 use_bpm 120
 define:onefive do
   3.times do
-    play:af4
+    play:ab4
     sleep 0.5
   end
 end
 define:fivefive do
   8.times do
-    play:af4
+    play:ab4
     sleep 0.5
   end
 end
 define:fd do
   play:f4
-  play:d4
+  play:db4
   sleep 2
 end
 define:fc do
@@ -22,7 +22,7 @@ define:fc do
   sleep 2
 end
 define:threeblockstnd do
-  play:b4
+  play:bb4
   sleep 0.5
   play:c5
   sleep 0.25
@@ -32,15 +32,15 @@ define:threeblockstnd do
   sleep 1
   play:r
   sleep 0.5
-  play:af4
+  play:ab4
   sleep 0.5
-  play:af4
+  play:ab4
   sleep 0.25
-  play:af4
+  play:ab4
   sleep 0.5
-  play:b4
+  play:bb4
   sleep 0.25
-  play:b4
+  play:bb4
   sleep 0.25
   play:c5
   sleep 0.5
@@ -50,13 +50,13 @@ define:threeblockstnd do
   sleep 1
   play:r
   sleep 0.25
-  play:af4
+  play:ab4
   sleep 0.25
-  play:af4
+  play:ab4
   sleep 0.5
-  play:af4
+  play:ab4
   sleep 0.5
-  play:af4
+  play:ab4
   sleep 0.5
 end
 define:heart do |heartone,hearttwo,heartthree,heartfour|
@@ -70,21 +70,21 @@ define:heart do |heartone,hearttwo,heartthree,heartfour|
   sleep 1
   play:r
   sleep 0.5
-  play:af4
+  play:ab4
   play:c4
   play:f4
   sleep 0.5
-  play:af4
+  play:ab4
   sleep 0.5
-  play:af4
+  play:ab4
   sleep 0.5
 end
 define:smile do |smileone|
-  play:a4
+  play:ab4
   sleep 2
   play:r
   sleep 0.5
-  play:a4
+  play:ab4
   sleep 0.5
   play:r
   sleep 0.5
@@ -103,7 +103,7 @@ define:star do |starone,startwo|
 end
 onlyraysleep=[0.5,0.25,0.25,1,0.5,0.5,0.5,0.5]
 ors=0
-onlyraynotes=[:af4,:af4,:af4,:af4,:r,:af4,:af4,:af4,]
+onlyraynotes=[:ab4,:ab4,:ab4,:ab4,:r,:ab4,:ab4,:ab4,]
 live_loop:oneblockst do
   onefive
   fivefive
@@ -115,37 +115,128 @@ live_loop:oneblockst do
   stop
 end
 live_loop:oneblocknd do
-  use_synth:piano
-  with_fx :level,amp:0.1,mix:1 do
-    onefive
-    play:af4
-    sleep 0.5
-    play:af4
-    sleep 0.5
-    play:af4
-    sleep 0.5
-    play:af4
-    sleep 0.5
-    play:af4
-    sleep 0.5
-    play:af4
-    play:e4
-    play:c4
-    sleep 0.5
-    play:af4
-    sleep 0.5
-    play:af4
-    play:f4
-    play:c4
-    sleep 0.5
-    heart :af4,:af4,:af4,:af4
-    stop
-  end
+  use_synth :piano
+  onefive
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  play:eb4
+  play:c4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  play:f4
+  play:c4
+  sleep 0.5
+  heart :ab4,:ab4,:ab4,:ab4
+  stop
 end
-
-live_loop:oneblockrd do
+live_loop:oneblockndtwo do
+  use_synth :piano
   sleep 1.5
-  smile :d3
-  star :d3,:d3
+  fd
+  play:r
+  sleep 2
+  fc
+  play:r
+  sleep 2
+  stop
+end
+live_loop:oneblockrd do
+  use_synth :piano
+  sleep 1.5
+  smile :db3
+  star :db3,:db3
+  stop
+end
+live_loop:twoblockst do
+  sleep 9.5
+  play:c5
+  sleep 0.75
+  play:bb4
+  sleep 0.25
+  play:bb4
+  sleep 1
+  play:r
+  sleep 0.25
+  play:ab4
+  sleep 0.25
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:bb4
+  sleep 0.25
+  play:f4
+  sleep 0.25
+  play:f4
+  sleep 0.25
+  play:f4
+  sleep 0.25
+  play:f4
+  sleep 1
+  play:r
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  stop
+end
+live_loop:twoblocknd do
+  use_synth :piano
+  sleep 9.5
+  play:c5
+  sleep 0.75
+  play:bb4
+  sleep 0.25
+  play:bb4
+  sleep 1
+  play:bb4
+  sleep 0.25
+  play:ab4
+  sleep 0.25
+  play:ab4
+  play:eb4
+  play:bb3
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  play:f4
+  play:c4
+  sleep 0.5
+  heart :bb4,:f4,:f4,:f4
+  stop
+end
+live_loop:twoblockndtwo do
+  use_synth :piano
+  sleep 9.5
+  fd
+  play:r
+  sleep 2
+  fc
+  play:r
+  sleep 2
+  stop
+end
+live_loop:twoblockrd do
+  use_synth :piano
+  sleep 9.5
+  smile :f2
+  star :f2,:f2
   stop
 end
