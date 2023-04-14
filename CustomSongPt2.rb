@@ -1,171 +1,151 @@
 use_bpm 120
-define:secend2notes do |z|
-  play:b2
+define:onefive do
+  3.times do
+    play:af4
+    sleep 0.5
+  end
+end
+define:fivefive do
+  8.times do
+    play:af4
+    sleep 0.5
+  end
+end
+define:fd do
+  play:f4
+  play:d4
+  sleep 2
+end
+define:fc do
+  play:f4
+  play:c4
+  sleep 2
+end
+define:threeblockstnd do
+  play:b4
+  sleep 0.5
+  play:c5
+  sleep 0.25
+  play:c5
+  sleep 0.25
+  play:c5
+  sleep 1
+  play:r
+  sleep 0.5
+  play:af4
+  sleep 0.5
+  play:af4
+  sleep 0.25
+  play:af4
+  sleep 0.5
+  play:b4
+  sleep 0.25
+  play:b4
+  sleep 0.25
+  play:c5
+  sleep 0.5
+  play:c5
+  sleep 0.25
+  play:c5
+  sleep 1
+  play:r
+  sleep 0.25
+  play:af4
+  sleep 0.25
+  play:af4
+  sleep 0.5
+  play:af4
+  sleep 0.5
+  play:af4
+  sleep 0.5
+end
+define:heart do |heartone,hearttwo,heartthree,heartfour|
+  play heartone
+  sleep 0.5
+  play hearttwo
+  sleep 0.25
+  play heartthree
+  sleep 0.25
+  play heartfour
+  sleep 1
+  play:r
+  sleep 0.5
+  play:af4
+  play:c4
+  play:f4
+  sleep 0.5
+  play:af4
+  sleep 0.5
+  play:af4
+  sleep 0.5
+end
+define:smile do |smileone|
+  play:a4
   sleep 2
   play:r
   sleep 0.5
-  play:c3
+  play:a4
   sleep 0.5
   play:r
   sleep 0.5
-  play z
+  play smileone
   sleep 0.5
-  play z
+end
+define:star do |starone,startwo|
+  play starone
   sleep 2
   play:r
   sleep 0.5
-  play z
+  play startwo
   sleep 1
   play:r
   sleep 0.5
 end
-slepy=[0.5,0.5,0.5,0.5,0.5,0.25,0.25,0.5,0.5,0.5,0.5,0.5,0.5,0.25,0.25,0.5]
-sl=0
-live_loop:secone do
-  16.times do
-    play:ab4
-    sleep slepy[sl]
-    sl=sl+1
-  end
-  1.times do
-    play :r
-    sleep 1
-  end
-  3.times do
-    play :ab4
-    sleep 0.5
+onlyraysleep=[0.5,0.25,0.25,1,0.5,0.5,0.5,0.5]
+ors=0
+onlyraynotes=[:af4,:af4,:af4,:af4,:r,:af4,:af4,:af4,]
+live_loop:oneblockst do
+  onefive
+  fivefive
+  8.times do
+    play onlyraynotes[ors]
+    sleep onlyraysleep[ors]
+    ors=ors+1
   end
   stop
 end
-live_loop:secmiddle do
-  1.times do
-    sleep 1.5
-    play:d4
-    play:b3
-    sleep 2
-    play:r
+live_loop:oneblocknd do
+  use_synth:piano
+  with_fx :level,amp:0.1,mix:1 do
+    onefive
+    play:af4
     sleep 0.5
+    play:af4
+    sleep 0.5
+    play:af4
+    sleep 0.5
+    play:af4
+    sleep 0.5
+    play:af4
+    sleep 0.5
+    play:af4
     play:e4
-    play:a3
+    play:c4
     sleep 0.5
-    play:r
+    play:af4
     sleep 0.5
+    play:af4
     play:f4
     play:c4
     sleep 0.5
-    play:f4
-    play:c4
-    sleep 2
-    play:r
-    sleep 0.5
-    play:f4
-    play:c4
-    sleep 1
-    play:r
-    sleep 0.5
+    heart :af4,:af4,:af4,:af4
+    stop
   end
-  stop
-end
-live_loop:secend do
-  1.times do
-    sleep 1.5
-    play:d2
-    sleep 2
-    play:r
-    sleep 0.5
-    play:c3
-    sleep 0.5
-    play:r
-    sleep 0.5
-    play:d3
-    sleep 0.5
-    play:d3
-    sleep 2
-    play:r
-    sleep 0.5
-    play:d3
-    sleep 1
-    play:r
-    sleep 0.5
-  end
-  stop
-end
-use_bpm 120
-live_loop:secone2 do
-  sleep 9.5
-  1.times do
-    play:e5
-    sleep 0.75
-    play:b4
-    sleep 0.25
-    play:b4
-    sleep 0.5
-    play:r
-    sleep 0.5
-    play:r
-    sleep 0.25
-    play:f4
-    sleep 0.25
-    play:a4
-    sleep 0.5
-    play:a4
-    sleep 0.5
-    play:a4
-    sleep 0.5
-    play:a4
-    sleep 0.25
-    play:f4
-    sleep 0.5
-    play:f4
-    sleep 0.25
-    play:f4
-    sleep 1
-    play:r
-    sleep 0.5
-    play:a4
-    sleep 0.5
-    play:a4
-    sleep 0.5
-    play:a4
-    sleep 0.5
-  end
-  stop
-end
-live_loop:secmiddle2 do
-  sleep 9.5
-  1.times do
-    play:d4
-    play:b3
-    sleep 2
-    play:r
-    sleep 0.5
-    play:e4
-    play:a3
-    sleep 0.5
-    play:r
-    sleep 0.5
-    play:f4
-    play:a3
-    sleep 0.5
-    play:f4
-    play:a3
-    sleep 2
-    play:r
-    sleep 0.5
-    play:f4
-    play:a3
-    sleep 1
-    play:r
-    sleep 0.5
-  end
-  stop
 end
 
-live_loop:secend2 do
-  sleep 9.5
-  1.times do
-    secend2notes :f2
-    secend2notes :d3
-  end
+live_loop:oneblockrd do
+  sleep 1.5
+  smile :d3
+  star :d3,:d3
   stop
 end
