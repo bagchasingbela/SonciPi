@@ -101,6 +101,51 @@ define:star do |starone,startwo|
   play:r
   sleep 0.5
 end
+define:pinkie do
+  play:bb4
+  sleep 0.5
+  play:c5
+  sleep 0.25
+  play:c5
+  sleep 0.25
+  play:c5
+  sleep 1
+  play:r
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.25
+  play:ab4
+  sleep 0.5
+  play:bb4
+  sleep 0.25
+  play:bb4
+  sleep 0.25
+  play:c5
+  sleep 0.5
+  play:c5
+  sleep 0.25
+  play:c5
+  sleep 1
+  play:r
+  sleep 0.25
+  play:ab4
+  sleep 0.25
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+end
+
+
+
+
+
+
+
 onlyraysleep=[0.5,0.25,0.25,1,0.5,0.5,0.5,0.5]
 ors=0
 onlyraynotes=[:ab4,:ab4,:ab4,:ab4,:r,:ab4,:ab4,:ab4,]
@@ -240,7 +285,45 @@ live_loop:twoblockrd do
   star :f2,:f2
   stop
 end
-live_loop:caca do
-  sample :drum_cymbal_closed, rate: -1
+live_loop:threeblockst do
+  sleep 17.5
+  pinkie
+  stop
+end
+live_loop:threeblocknd do
+  use_synth :piano
+  sleep 17.5
+  pinkie
+  stop
+end
+live_loop:threeblockndtwo do
+  use_synth :piano
+  sleep 17.5
+  fd
+  play:r
   sleep 0.5
+  play:f4
+  play:bb3
+  sleep 0.5
+  play:r
+  sleep 0.5
+  play:f4
+  play:bb3
+  sleep 0.5
+  fc
+  play:r
+  sleep 0.5
+  play:f4
+  play:bb3
+  sleep 0.5
+  play:r
+  sleep 1
+  stop
+end
+live_loop:threeblockrd do
+  use_synth :piano
+  sleep 17.5
+  smile :db3
+  star :db3,:db3
+  stop
 end
