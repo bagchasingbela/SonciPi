@@ -149,6 +149,12 @@ define:pinkie do
   play:ab4
   sleep 0.5
 end
+tools="/Users/isabela/Downloads/video-output-0F67DAC8-D2F5-461D-94A8-CBE15C55D06D (audio-extractor.net).wav"
+live_loop:told do
+  sample tools
+  stop
+end
+sleep 0.75
 onlyraysleep=[0.5,0.25,0.25,1,0.5,0.5,0.5,0.5]
 ors=0
 onlyraynotes=[:ab4,:ab4,:ab4,:ab4,:r,:ab4,:ab4,:ab4,]
@@ -543,4 +549,21 @@ live_loop:fiveblockndtwo do
   sleep 1
   triangle :f2
   stop
+end
+
+outman="/Users/isabela/Downloads/export_1682060998560 (audio-extractor.net).wav"
+ohriley="/Users/isabela/Downloads/ending.wav"
+oww="/Users/isabela/Downloads/ow.wav"
+sleep 45
+sample outman
+sleep sleep 7.5
+1.times do
+  sample ohriley
+end
+sleep 11
+dog=1
+10.times do
+  sample oww ,amp:dog
+  dog=dog-0.1
+  sleep 1
 end
