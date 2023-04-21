@@ -1,3 +1,5 @@
+use_bpm 120
+use_synth :tech_saws
 define:red do
   sleep 1
   play:c5
@@ -69,9 +71,72 @@ define:maroon do
   sleep 1
   sleep 1
 end
-vocals="C:/Users/isabela_marquez/Downloads/untitled.wav"
+cacaca=0.2
+intro="/Users/isabela/Documents/intro.wav"
+live_loop:inie do
+  sample intro
+  stop
+end
+live_loop :middlea do
+  sleep 19
+  2.times do
+    1.times do
+      with_fx :wobble ,smooth:4,amp:cacaca,mix:1 do
+        red
+        blue
+        cacaca=cacaca+0.2
+        red
+        blue
+      end
+    end
+  end
+  stop
+end
+jajaja=0.2
+live_loop :enda do
+  sleep 19
+  2.times do
+    1.times do
+      with_fx :wobble ,smooth:5,amp:jajaja,mix:1 do
+        green
+        lilac
+        jajaja=jajaja+0.2
+        green
+        lilac
+      end
+    end
+  end
+  stop
+end
+
+sleepy=[2,2,0.5,0.5]
+s=0
+notes= [:e4,:e4,:e4,:d4]
+n=0
+banana=0.2
+live_loop :firsta do
+  sleep 19
+  1.times do
+    with_fx :wobble ,smooth:4,amp:banana,mix:1 do
+      sleep 10
+      2.times do
+        play notes[n]
+        n=n+1
+        sleep sleepy[s]
+        s=s+1
+        banana=banana+0.2
+      end
+      sleep 1
+      n=0
+      s=0
+    end
+  end
+  stop
+end
+vocals="/Users/isabela/Downloads/untitled (1).wav"
 ampp=0.333
 live_loop :words do
+  sleep 51
   3.times do
     sleep 0.5
     sample vocals,amp:ampp
@@ -86,9 +151,10 @@ live_loop :words do
   end
   stop
 end
-use_bpm 120
-use_synth :tech_saws
+
+
 live_loop :middle do
+  sleep 51
   2.times do
     with_fx :wobble ,smooth:4,amp:1,mix:1 do
       red
@@ -100,6 +166,7 @@ live_loop :middle do
   stop
 end
 live_loop :end do
+  sleep 51
   2.times do
     with_fx :wobble ,smooth:5,amp:1,mix:1 do
       green
@@ -115,6 +182,7 @@ s=0
 notes= [:e4,:e4,:e4,:d4]
 n=0
 live_loop :first do
+  sleep 51
   2.times do
     with_fx :wobble ,smooth:4,amp:1,mix:1 do
       sleep 10
@@ -132,6 +200,7 @@ live_loop :first do
   stop
 end
 live_loop:first2 do
+  sleep 51
   1.times do
     with_fx :wobble ,smooth:4,amp:1,mix:1 do
       sleep 32
@@ -144,6 +213,7 @@ live_loop:first2 do
   stop
 end
 live_loop:last2 do
+  sleep 51
   1.times do
     with_fx :wobble ,smooth:4,amp:1,mix:1 do
       sleep 32
@@ -161,6 +231,7 @@ live_loop:last2 do
   stop
 end
 live_loop:middle2 do
+  sleep 51
   1.times do
     with_fx :wobble ,smooth:4,amp:1,mix:1 do
       sleep 32
@@ -172,3 +243,6 @@ live_loop:middle2 do
   end
   stop
 end
+woohoo="/Users/isabela/Downloads/video-output-913ED9FB-BFA2-4ABE-ABF4-48E0CDC6BE3E (audio-extractor.net).wav"
+sleep 97.5
+sample woohoo
