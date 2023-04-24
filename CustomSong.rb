@@ -208,6 +208,8 @@ live_loop:first2 do
       yellow
       yellow
       sleep 4
+      yellow
+      sleep 4
     end
   end
   stop
@@ -226,6 +228,10 @@ live_loop:last2 do
       play:a2
       sleep 2
       sleep 2
+      lime
+      play:a2
+      sleep 2
+      sleep 2
     end
   end
   stop
@@ -239,10 +245,149 @@ live_loop:middle2 do
       maroon
       purple
       maroon
+      purple
+      maroon
     end
   end
   stop
 end
+define:heart do |heartone,hearttwo,heartthree,heartfour|
+  play heartone
+  sleep 0.5
+  play hearttwo
+  sleep 0.25
+  play heartthree
+  sleep 0.25
+  play heartfour
+  sleep 1
+  play:r
+  sleep 0.5
+  play:ab4
+  play:c4
+  play:f4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+end
+define:onefive do
+  3.times do
+    play:ab4
+    sleep 0.5
+  end
+end
+define:fivefive do
+  8.times do
+    play:ab4
+    sleep 0.5
+  end
+end
+
 woohoo="/Users/isabela/Downloads/video-output-913ED9FB-BFA2-4ABE-ABF4-48E0CDC6BE3E (audio-extractor.net).wav"
-sleep 97.5
+sleep 105.5
 sample woohoo
+sleep 35
+onlyraysleep=[0.5,0.25,0.25,1,0.5,0.5,0.5,0.5]
+ors=0
+onlyraynotes=[:ab4,:ab4,:ab4,:ab4,:r,:ab4,:ab4,:ab4,]
+live_loop:oneblockst do
+  onefive
+  fivefive
+  8.times do
+    play onlyraynotes[ors]
+    sleep onlyraysleep[ors]
+    ors=ors+1
+  end
+  stop
+end
+live_loop:oneblocknd do
+  use_synth :piano
+  onefive
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  play:eb4
+  play:c4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  play:f4
+  play:c4
+  sleep 0.5
+  heart :ab4,:ab4,:ab4,:ab4
+  stop
+end
+live_loop:twoblockst do
+  sleep 9.5
+  play:c5
+  sleep 0.75
+  play:bb4
+  sleep 0.25
+  play:bb4
+  sleep 1
+  play:r
+  sleep 0.25
+  play:ab4
+  sleep 0.25
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:bb4
+  sleep 0.25
+  play:f4
+  sleep 0.25
+  play:f4
+  sleep 0.25
+  play:f4
+  sleep 0.25
+  play:f4
+  sleep 1
+  play:r
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  stop
+end
+live_loop:twoblocknd do
+  use_synth :piano
+  sleep 9.5
+  play:c5
+  sleep 0.75
+  play:bb4
+  sleep 0.25
+  play:bb4
+  sleep 1
+  play:bb4
+  sleep 0.25
+  play:ab4
+  sleep 0.25
+  play:ab4
+  play:eb4
+  play:bb3
+  sleep 0.5
+  play:ab4
+  sleep 0.5
+  play:ab4
+  play:f4
+  play:c4
+  sleep 0.5
+  heart :bb4,:f4,:f4,:f4
+  stop
+end
